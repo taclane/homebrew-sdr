@@ -12,6 +12,7 @@ class TrunkRecorder < Formula
 
    depends_on "cmake" => :build
    depends_on "gnuradio"
+   depends_on "gr-osmosdr"
    depends_on "uhd"
    depends_on "cmake"
    depends_on "pkgconfig"
