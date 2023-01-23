@@ -23,7 +23,7 @@ class TrunkRecorder < Formula
    depends_on "pybind11"
    
    
-   # Temoporary patch to build on apple clang 14 / Xcode 14.2
+   # Temporary patch to build on apple clang 14 / Xcode 14.2
    patch :DATA      
       
    def install
