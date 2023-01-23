@@ -45,6 +45,8 @@ class GrOsmosdr < Formula
      sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
    end
 
+   # Remove the remaining "register" to allow hackrf support in Apple clang 14 / Xcode 14.2
+   # hackrf_sink_c.cc:302:9: error: ISO C++17 does not allow 'register' storage class specifier [-Wregister]
    patch :DATA
 
    def install
@@ -55,9 +57,6 @@ class GrOsmosdr < Formula
 
      venv.pip_install resources
 
-
-# 	 patch :p0, :DATA
-	
      system "cmake", ".", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{venv_root}/bin/python"
      system "make", "install"
 
