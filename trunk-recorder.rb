@@ -1,37 +1,31 @@
 class TrunkRecorder < Formula
+  desc "Trunked P25 and Conventional Radio Recorder"
+  homepage "https://github.com/robotastic/trunk-recorder"
+  url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "7850cb9c0d91a153b6371c80124e081482e74ad4bd49b8e7b0ae2fc52ced5c6e"
+  license "GPL-3.0-or-later"
+  head url "https://github.com/robotastic/trunk-recorder.git", branch: "master"
 
-   desc "Trunk-Recorder"
-   homepage "https://github.com/robotastic/trunk-recorder"
-   url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v4.5.0.zip"
-   sha256 "eaf305895e4b58349ab809f9b8827ea37256bfd08dc5fe7447e9b5f6b3e777d0"
-   license "GPL-3.0"
+  depends_on "cmake" => :build
+  depends_on "cppunit"
+  depends_on "fdk-aac-encoder"
+  depends_on "gnuradio"
+  depends_on "gr-osmosdr"
+  depends_on "openssl"
+  depends_on "pkgconfig"
+  depends_on "pybind11"
+  depends_on "sox"
+  depends_on "uhd"
 
-   head do
-     url "https://github.com/robotastic/trunk-recorder.git"
-   end
+  # 23 JAN 2023 *** Temporary patch to build on apple clang 14 / Xcode 14.2
+  patch :DATA
 
-   depends_on "cmake" => :build
-   depends_on "gnuradio"
-   depends_on "gr-osmosdr"
-   depends_on "uhd"
-   depends_on "pkgconfig"
-   depends_on "cppunit"
-   depends_on "openssl"
-   depends_on "fdk-aac-encoder"
-   depends_on "sox"
-   depends_on "pybind11"
-   
-   
-   # 23 JAN 2023 *** Temporary patch to build on apple clang 14 / Xcode 14.2
-   patch :DATA      
-      
-   def install
-	  mkdir "build" do
-		system "cmake", "..", *std_cmake_args, "-D OPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
-		system "make", "install"
-      end
-   end
-
+  def install
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-D OPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
+      system "make", "install"
+    end
+  end
 end
 
 __END__
