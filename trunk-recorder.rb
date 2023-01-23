@@ -14,7 +14,6 @@ class TrunkRecorder < Formula
    depends_on "gnuradio"
    depends_on "gr-osmosdr"
    depends_on "uhd"
-   depends_on "cmake"
    depends_on "pkgconfig"
    depends_on "cppunit"
    depends_on "openssl"
@@ -23,13 +22,12 @@ class TrunkRecorder < Formula
    depends_on "pybind11"
    
    
-   # Temporary patch to build on apple clang 14 / Xcode 14.2
+   # 23 JAN 2023 *** Temporary patch to build on apple clang 14 / Xcode 14.2
    patch :DATA      
       
    def install
 	  mkdir "build" do
 		system "cmake", "..", *std_cmake_args, "-D OPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
-		system "make"
 		system "make", "install"
       end
    end
