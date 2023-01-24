@@ -1,5 +1,5 @@
 class TrunkRecorder < Formula
-  desc "Trunked P25 and Conventional Radio Recorder"
+  desc "Trunked & Conventional Radio Recorder"
   homepage "https://github.com/robotastic/trunk-recorder"
   url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v4.5.0.tar.gz"
   sha256 "7850cb9c0d91a153b6371c80124e081482e74ad4bd49b8e7b0ae2fc52ced5c6e"
