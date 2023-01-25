@@ -6,6 +6,7 @@ class GrOsmosdr < Formula
   url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.4.tar.gz"
   sha256 "28b6f2768aee7b397b227e9e70822e28de3b4c5362a5d14646a0948a48094a63"
   license "GPL-3.0-or-later"
+  head url "https://github.com/osmocom/gr-osmosdr.git", branch: "master"
 
   # brew audit --strict --online gr-osmosdr
   # * Libraries were compiled with a flat namespace.
@@ -14,12 +15,8 @@ class GrOsmosdr < Formula
   # /usr/local/share/cmake/SoapySDR/SoapySDRExport.cmake(61):
   #   set_target_properties( ... INTERFACE_LINK_LIBRARIES -pthread;-pthread;-flat_namespace )
 
-  head do
-    url "https://github.com/osmocom/gr-osmosdr.git", branch: "master"
-    depends_on "pybind11" => :build
-  end
-
   depends_on "cmake" => :build
+  depends_on "pybind11" => :build
   depends_on "airspy"
   depends_on "boost"
   depends_on "fmt"
@@ -27,7 +24,6 @@ class GrOsmosdr < Formula
   depends_on "gnuradio"
   depends_on "hackrf"
   depends_on "librtlsdr"
-  depends_on "pybind11"
   depends_on "soapyrtlsdr"
   depends_on "uhd"
   depends_on "volk"
@@ -63,7 +59,7 @@ class GrOsmosdr < Formula
 
     # Leave a pointer to our Python module directory where GNU Radio can find it
     plugin_path = etc/"gnuradio/plugins.d/gr-osmosdr.pth"
-    # plugin_path.delete if plugin_path.exist? || plugin_path.symlink?
+    plugin_path.delete if plugin_path.exist? || plugin_path.symlink?
     plugin_path.write "#{venv_root}/lib/python#{xy}/site-packages\n"
   end
 
