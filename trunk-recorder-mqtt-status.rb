@@ -13,6 +13,8 @@ class TrunkRecorderMqttStatus < Formula
   depends_on "gnuradio"
   depends_on "gr-osmosdr"
   depends_on "openssl@1.1"
+  depends_on "paho-mqtt-c"
+  depends_on "paho-mqtt-cpp"
   depends_on "spdlog"
   depends_on "trunk-recorder"
   depends_on "uhd"
