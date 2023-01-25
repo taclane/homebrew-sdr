@@ -25,6 +25,7 @@ class GrOsmosdr < Formula
   depends_on "hackrf"
   depends_on "librtlsdr"
   depends_on "soapyrtlsdr"
+  depends_on "spdlog"
   depends_on "uhd"
   depends_on "volk"
 
