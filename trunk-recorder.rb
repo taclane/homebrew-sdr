@@ -7,15 +7,21 @@ class TrunkRecorder < Formula
   head url "https://github.com/robotastic/trunk-recorder.git", branch: "master"
 
   depends_on "cmake" => :build
+  depends_on "pkgconfig" => :build
+  depends_on "pybind11" => :build
+  depends_on "boost"
   depends_on "cppunit"
+  depends_on "curl"
   depends_on "fdk-aac-encoder"
+  depends_on "fmt"
+  depends_on "gmp"
   depends_on "gnuradio"
   depends_on "gr-osmosdr"
   depends_on "openssl"
-  depends_on "pkgconfig"
-  depends_on "pybind11"
   depends_on "sox"
+  depends_on "spdlog"
   depends_on "uhd"
+  depends_on "volk"
 
   # 23 JAN 2023 *** Temporary patch to build on apple clang 14 / Xcode 14.2
   patch :DATA

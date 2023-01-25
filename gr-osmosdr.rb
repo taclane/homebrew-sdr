@@ -22,11 +22,15 @@ class GrOsmosdr < Formula
   depends_on "cmake" => :build
   depends_on "airspy"
   depends_on "boost"
+  depends_on "fmt"
+  depends_on "gmp"
   depends_on "gnuradio"
   depends_on "hackrf"
   depends_on "librtlsdr"
   depends_on "pybind11"
+  depends_on "soapyrtlsdr"
   depends_on "uhd"
+  depends_on "volk"
 
   resource "Cheetah" do
     url "https://files.pythonhosted.org/packages/50/d5/34b30f650e889d0d48e6ea9337f7dcd6045c828b9abaac71da26b6bdc543/Cheetah3-3.2.5.tar.gz"
@@ -59,8 +63,7 @@ class GrOsmosdr < Formula
 
     # Leave a pointer to our Python module directory where GNU Radio can find it
     plugin_path = etc/"gnuradio/plugins.d/gr-osmosdr.pth"
-
-    plugin_path.delete if plugin_path.exist? || plugin_path.symlink?
+    # plugin_path.delete if plugin_path.exist? || plugin_path.symlink?
     plugin_path.write "#{venv_root}/lib/python#{xy}/site-packages\n"
   end
 
