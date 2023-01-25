@@ -20,7 +20,7 @@ class TrunkRecorder < Formula
   depends_on "gmp"
   depends_on "gnuradio"
   depends_on "gr-osmosdr"
-  depends_on "openssl"
+  depends_on "openssl@3"
   depends_on "sox"
   depends_on "spdlog"
   depends_on "uhd"
@@ -31,7 +31,7 @@ class TrunkRecorder < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-D OPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
+      system "cmake", "..", *std_cmake_args, "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}"
       system "make", "install"
     end
   end
