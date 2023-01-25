@@ -8,7 +8,7 @@ class TrunkRecorder < Formula
   head do
     url "https://github.com/robotastic/trunk-recorder.git", branch: "master"
   end
-  
+
   depends_on "cmake" => :build
   depends_on "cppunit" => :build
   depends_on "pkgconfig" => :build
