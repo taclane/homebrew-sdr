@@ -7,10 +7,10 @@ class TrunkRecorder < Formula
   head url "https://github.com/robotastic/trunk-recorder.git", branch: "master"
 
   depends_on "cmake" => :build
+  depends_on "cppunit" => :build
   depends_on "pkgconfig" => :build
   depends_on "pybind11" => :build
   depends_on "boost"
-  depends_on "cppunit"
   depends_on "curl"
   depends_on "fdk-aac-encoder"
   depends_on "fmt"
