@@ -6,8 +6,11 @@ class GrOsmosdr < Formula
   url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.4.tar.gz"
   sha256 "28b6f2768aee7b397b227e9e70822e28de3b4c5362a5d14646a0948a48094a63"
   license "GPL-3.0-or-later"
-  head url "https://github.com/osmocom/gr-osmosdr.git", branch: "master"
 
+  head do
+    url "https://github.com/osmocom/gr-osmosdr.git", branch: "master"
+  end
+  
   # brew audit --strict --online gr-osmosdr
   # * Libraries were compiled with a flat namespace.
 

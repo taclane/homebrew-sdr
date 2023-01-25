@@ -4,8 +4,11 @@ class TrunkRecorder < Formula
   url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v4.5.0.tar.gz"
   sha256 "7850cb9c0d91a153b6371c80124e081482e74ad4bd49b8e7b0ae2fc52ced5c6e"
   license "GPL-3.0-or-later"
-  head url "https://github.com/robotastic/trunk-recorder.git", branch: "master"
 
+  head do
+    url "https://github.com/robotastic/trunk-recorder.git", branch: "master"
+  end
+  
   depends_on "cmake" => :build
   depends_on "cppunit" => :build
   depends_on "pkgconfig" => :build
