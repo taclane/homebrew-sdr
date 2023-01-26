@@ -30,10 +30,12 @@ class TrunkRecorder < Formula
   patch :DATA
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}"
-      system "make", "install"
-    end
+    args = %W[
+      -Bbuild
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+    ]
+      system "cmake", *std_cmake_args, *args
+      system "make", "-C", "build", "install"
   end
 end
 
