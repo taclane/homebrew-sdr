@@ -37,7 +37,7 @@ end
 
 __END__
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ded581a..d5fa541 100644
+index ded581a..e11f79c 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -66,8 +66,8 @@ include(FindPkgConfig)
@@ -59,7 +59,7 @@ index ded581a..d5fa541 100644
  )
  
  set(CMAKE_CXX_FLAGS_DEBUG "-Wall -Wno-unused-local-typedef -Wno-deprecated-declarations -Wno-error=deprecated-declarations -g3")
-@@ -241,6 +242,7 @@ if(NOT Gnuradio_VERSION VERSION_LESS "3.8")
+@@ -241,11 +242,12 @@ if(NOT Gnuradio_VERSION VERSION_LESS "3.8")
      gnuradio::gnuradio-digital
      gnuradio::gnuradio-filter
      gnuradio::gnuradio-pmt
@@ -68,3 +68,5 @@ index ded581a..d5fa541 100644
  
  endif()
  
+-install(TARGETS mqtt_status_plugin LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/trunk-recorder)
++install(TARGETS mqtt_status_plugin LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
