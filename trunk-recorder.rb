@@ -27,7 +27,9 @@ class TrunkRecorder < Formula
   depends_on "volk"
 
   # 23 JAN 2023 *** Temporary patch to build on apple clang 14 / Xcode 14.2
-  patch :DATA
+  stable do
+    patch :DATA
+  end
 
   def install
     args = %W[
