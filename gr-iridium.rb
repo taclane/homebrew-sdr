@@ -2,7 +2,7 @@ class GrIridium < Formula
   desc "GNU Radio Iridium Out Of Tree Module"
   homepage "https://github.com/muccc/gr-iridium"
   url "https://github.com/muccc/gr-iridium/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "28b6f2768aee7b397b227e9e70822e28de3b4c5362a5d14646a0948a48094a63"
+  sha256 "933f5fd18705ddd452547304b404cc36abe4acc1ad7d5c016ad16c0dd2254d86"
   license "GPL-3.0-or-later"
 
   head do
