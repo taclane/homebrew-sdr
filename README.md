@@ -1,6 +1,6 @@
 - `brew tap taclane/sdr`
 
-__Trunk Recorder__ (Jan 2023: Patched for MacOS clang 14)
+__Trunk Recorder__ (Jan 2023: 4.5 release patched for MacOS clang 14)
 - `brew install trunk-recorder` (4.5 release)
 - `brew install trunk-recorder --head` (git)
 
