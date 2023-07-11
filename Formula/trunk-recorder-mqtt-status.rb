@@ -6,6 +6,10 @@ class TrunkRecorderMqttStatus < Formula
   # Head only formula
   head "https://github.com/robotastic/trunk-recorder-mqtt-status.git", branch: "main"
 
+  devel do
+    url "https://github.com/taclane/trunk-recorder-mqtt-status.git", branch: "unit-stats"
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "fmt"
