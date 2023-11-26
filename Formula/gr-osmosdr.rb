@@ -17,7 +17,7 @@ class GrOsmosdr < Formula
   head do
     url "https://github.com/osmocom/gr-osmosdr.git", branch: "master"
   end
-  
+
   # brew audit --strict --online gr-osmosdr
   # * Libraries were compiled with a flat namespace.
 
