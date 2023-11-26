@@ -3,9 +3,16 @@ class GrOsmosdr < Formula
 
   desc "Osmocom GNU Radio Blocks"
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
-  url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.4.tar.gz"
-  sha256 "28b6f2768aee7b397b227e9e70822e28de3b4c5362a5d14646a0948a48094a63"
   license "GPL-3.0-or-later"
+
+  stable do
+    url "https://github.com/osmocom/gr-osmosdr/archive/refs/tags/v0.2.4.tar.gz"
+    sha256 "28b6f2768aee7b397b227e9e70822e28de3b4c5362a5d14646a0948a48094a63"
+
+    # Remove the remaining "register" to allow hackrf support
+    # resolved in: https://osmocom.org/issues/6004 [Failure to build on macOS x86_64]
+    patch :DATA
+  end
 
   head do
     url "https://github.com/osmocom/gr-osmosdr.git", branch: "master"
@@ -32,7 +39,7 @@ class GrOsmosdr < Formula
   depends_on "uhd"
   depends_on "volk"
 
-  resource "Cheetah" do
+  resource "Cheetah3" do
     url "https://files.pythonhosted.org/packages/50/d5/34b30f650e889d0d48e6ea9337f7dcd6045c828b9abaac71da26b6bdc543/Cheetah3-3.2.5.tar.gz"
     sha256 "ececc9ca7c58b9a86ce71eb95594c4619949e2a058d2a1af74c7ae8222515eb1"
   end
@@ -46,10 +53,6 @@ class GrOsmosdr < Formula
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
-
-  # Remove the remaining "register" to allow hackrf support in Apple clang 14 / Xcode 14.2
-  # hackrf_sink_c.cc:302:9: error: ISO C++17 does not allow 'register' storage class specifier [-Wregister]
-  patch :DATA
 
   def install
     venv_root = libexec/"venv"
