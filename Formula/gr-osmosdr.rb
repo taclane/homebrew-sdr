@@ -6,16 +6,16 @@ class GrOsmosdr < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://github.com/osmocom/gr-osmosdr/archive/refs/tags/v0.2.4.tar.gz"
-    sha256 "28b6f2768aee7b397b227e9e70822e28de3b4c5362a5d14646a0948a48094a63"
+    url "https://gitea.osmocom.org/sdr/gr-osmosdr/archive/v0.2.5.tar.gz"
+    sha256 "c9c99cae27cbadd0a5eabd5eb28bc5d8179cede12a8ab3b3a594fe932c46c97c"
 
     # Remove the remaining "register" to allow hackrf support
     # resolved in: https://osmocom.org/issues/6004 [Failure to build on macOS x86_64]
-    patch :DATA
+    # patch :DATA
   end
 
   head do
-    url "https://github.com/osmocom/gr-osmosdr.git", branch: "master"
+    url "https://gitea.osmocom.org/sdr/gr-osmosdr.git", branch: "master"
   end
 
   # brew audit --strict --online gr-osmosdr
@@ -87,17 +87,17 @@ class GrOsmosdr < Formula
   end
 end
 
-__END__
-diff --git a/lib/hackrf/hackrf_sink_c.cc b/lib/hackrf/hackrf_sink_c.cc
-index 1762934..54ff3ef 100644
---- a/lib/hackrf/hackrf_sink_c.cc
-+++ b/lib/hackrf/hackrf_sink_c.cc
-@@ -299,7 +299,7 @@ void convert_avx(const float* inbuf, int8_t* outbuf,const unsigned int count)
- #elif USE_SSE2
- void convert_sse2(const float* inbuf, int8_t* outbuf,const unsigned int count)
- {
--  const register __m128 mulme = _mm_set_ps( 127.0f, 127.0f, 127.0f, 127.0f );
-+  const __m128 mulme = _mm_set_ps( 127.0f, 127.0f, 127.0f, 127.0f );
-   __m128 itmp1,itmp2,itmp3,itmp4;
-   __m128i otmp1,otmp2,otmp3,otmp4;
+# __END__
+# diff --git a/lib/hackrf/hackrf_sink_c.cc b/lib/hackrf/hackrf_sink_c.cc
+# index 1762934..54ff3ef 100644
+# --- a/lib/hackrf/hackrf_sink_c.cc
+# +++ b/lib/hackrf/hackrf_sink_c.cc
+# @@ -299,7 +299,7 @@ void convert_avx(const float* inbuf, int8_t* outbuf,const unsigned int count)
+#  #elif USE_SSE2
+#  void convert_sse2(const float* inbuf, int8_t* outbuf,const unsigned int count)
+#  {
+# -  const register __m128 mulme = _mm_set_ps( 127.0f, 127.0f, 127.0f, 127.0f );
+# +  const __m128 mulme = _mm_set_ps( 127.0f, 127.0f, 127.0f, 127.0f );
+#    __m128 itmp1,itmp2,itmp3,itmp4;
+#    __m128i otmp1,otmp2,otmp3,otmp4;
  
