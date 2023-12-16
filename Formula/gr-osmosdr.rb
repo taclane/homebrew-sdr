@@ -8,10 +8,6 @@ class GrOsmosdr < Formula
   stable do
     url "https://gitea.osmocom.org/sdr/gr-osmosdr/archive/v0.2.5.tar.gz"
     sha256 "c9c99cae27cbadd0a5eabd5eb28bc5d8179cede12a8ab3b3a594fe932c46c97c"
-
-    # Remove the remaining "register" to allow hackrf support
-    # resolved in: https://osmocom.org/issues/6004 [Failure to build on macOS x86_64]
-    # patch :DATA
   end
 
   head do
@@ -86,18 +82,3 @@ class GrOsmosdr < Formula
     system Formula["gnuradio"].libexec/"venv/bin/python", testpath/"testimport.py"
   end
 end
-
-# __END__
-# diff --git a/lib/hackrf/hackrf_sink_c.cc b/lib/hackrf/hackrf_sink_c.cc
-# index 1762934..54ff3ef 100644
-# --- a/lib/hackrf/hackrf_sink_c.cc
-# +++ b/lib/hackrf/hackrf_sink_c.cc
-# @@ -299,7 +299,7 @@ void convert_avx(const float* inbuf, int8_t* outbuf,const unsigned int count)
-#  #elif USE_SSE2
-#  void convert_sse2(const float* inbuf, int8_t* outbuf,const unsigned int count)
-#  {
-# -  const register __m128 mulme = _mm_set_ps( 127.0f, 127.0f, 127.0f, 127.0f );
-# +  const __m128 mulme = _mm_set_ps( 127.0f, 127.0f, 127.0f, 127.0f );
-#    __m128 itmp1,itmp2,itmp3,itmp4;
-#    __m128i otmp1,otmp2,otmp3,otmp4;
- 
