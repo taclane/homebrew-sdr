@@ -6,8 +6,8 @@ class GrOsmosdr < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://gitea.osmocom.org/sdr/gr-osmosdr/archive/v0.2.5.tar.gz"
-    sha256 "c9c99cae27cbadd0a5eabd5eb28bc5d8179cede12a8ab3b3a594fe932c46c97c"
+    url "https://gitea.osmocom.org/sdr/gr-osmosdr/archive/v0.2.6.tar.gz"
+    sha256 "8995313795fe7f6fad8f59072067cbfd4dcdb3fa40c5374bdac2c2fb82ce8ab6"
   end
 
   head do
