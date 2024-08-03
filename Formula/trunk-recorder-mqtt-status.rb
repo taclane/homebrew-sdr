@@ -2,6 +2,7 @@ class TrunkRecorderMqttStatus < Formula
   desc "MQTT Status Plugin for trunk-recorder"
   homepage "https://github.com/robotastic/trunk-recorder-mqtt-status"
   license "GPL-3.0-or-later"
+  disable! date: "2024-07-01", because: "not currently compatible with trunk-recorder 5.0"
 
   # Head only formula
   head "https://github.com/robotastic/trunk-recorder-mqtt-status.git", branch: "main"
