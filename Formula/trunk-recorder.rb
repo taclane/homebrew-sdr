@@ -33,6 +33,8 @@ class TrunkRecorder < Formula
     args = %W[
       -Bbuild
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DSPDLOG_FMT_EXTERNAL=ON
+    endif()
     ]
       system "cmake", *std_cmake_args, *args
       system "make", "-C", "build", "install"
