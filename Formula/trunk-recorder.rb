@@ -49,8 +49,8 @@ class TrunkRecorder < Formula
       }
     EOS
 
-    system "trunk-recorder", "--config", "test.json",
-    assert_equal "The answer is 42", shell_output("find ./logs -name '*.log' -type f -exec awk 1 {} + | wc -m")
+    system "trunk-recorder", "--config", "test.json"
+    assert_equal "456", shell_output("find ./logs -name '*.log' -type f -exec awk 1 {} + | wc -m")
   end
 
 end
