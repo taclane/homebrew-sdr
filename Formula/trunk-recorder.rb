@@ -39,16 +39,22 @@ class TrunkRecorder < Formula
   end
 
   test do
+	# Start Trunk Trecorder with an empty config and interrupt after a
+	# short timeout if no fatal errors encountered running/ending the flowgraph
     (testpath/"test.json").write <<~EOS
       {
-        "ver": 1,
-        "logFile": true,
-        "logdir": "."
+        "ver": 2,
+        "logLevel": "error",
+        "instanceId": "**** TR TEST ****",
+        "callTimeout": 11,
+        "controlWarnRate": 22,
+        "controlRetuneLimit": 33,
+        "frequencyFormat": "hz"
       }
     EOS
 
-    system "trunk-recorder", "--config", "test.json"
-    assert_equal "456", shell_output("find" testpath"/logs -name '*.log' -type f -exec awk 1 {} + | wc -m")
+    system "timeout", "-sINT", "--preserve-status", "2s", 
+    	"trunk-recorder", "-c", testpath/"test.json"
   end
 
 end
