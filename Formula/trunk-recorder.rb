@@ -1,9 +1,9 @@
 class TrunkRecorder < Formula
   desc "Trunked & Conventional Radio Recorder"
   homepage "https://github.com/robotastic/trunk-recorder"
-  license "GPL-3.0-or-later"
   url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v5.0.0.tar.gz"
   sha256 "a9c328e94f46be89525071a361753dcbf8b1309bf0f8ab186df8769082a9804f"
+  license "GPL-3.0-or-later"
   head "https://github.com/robotastic/trunk-recorder.git", branch: "master"
 
   depends_on "cmake" => :build
@@ -28,13 +28,13 @@ class TrunkRecorder < Formula
       -Bbuild
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
     ]
-      system "cmake", *std_cmake_args, *args
-      system "make", "-C", "build", "install"
+    system "cmake", *std_cmake_args, *args
+    system "make", "-C", "build", "install"
   end
 
   test do
-	# Start Trunk Trecorder with an empty config and interrupt after a
-	# short timeout if no fatal errors encountered running/ending the flowgraph
+  # Start Trunk Trecorder with an empty config and interrupt after a
+  # short timeout if no fatal errors encountered running/ending the flowgraph
     (testpath/"test.json").write <<~EOS
       {
         "ver": 2,
@@ -47,8 +47,7 @@ class TrunkRecorder < Formula
       }
     EOS
 
-    system "timeout", "-sINT", "--preserve-status", "2s", 
-    	"trunk-recorder", "-c", testpath/"test.json"
+    system "timeout", "-sINT", "--preserve-status", "2s",
+      "trunk-recorder", "-c", testpath/"test.json"
   end
-
 end
