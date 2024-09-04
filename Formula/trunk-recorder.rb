@@ -33,8 +33,8 @@ class TrunkRecorder < Formula
   end
 
   test do
-  # Start Trunk Trecorder with an empty config and interrupt after a
-  # short timeout if no fatal errors encountered running/ending the flowgraph
+  # Start Trunk Trecorder with an empty config and interrupt after a short
+  #   timeout if no fatal errors encountered running/ending the flowgraph
     (testpath/"test.json").write <<~EOS
       {
         "ver": 2,
