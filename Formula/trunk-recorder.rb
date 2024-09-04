@@ -39,4 +39,18 @@ class TrunkRecorder < Formula
       system "cmake", *std_cmake_args, *args
       system "make", "-C", "build", "install"
   end
+
+  test do
+    (testpath/"test.json").write <<~EOS
+      {
+        "ver": 1,
+        "logFile": true,
+        "logdir": "."
+      }
+    EOS
+
+    system "trunk-recorder", "--config", "test.json",
+    assert_equal "The answer is 42", shell_output("find ./logs -name '*.log' -type f -exec awk 1 {} + | wc -m")
+  end
+
 end
