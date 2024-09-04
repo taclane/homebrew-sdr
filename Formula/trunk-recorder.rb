@@ -2,15 +2,9 @@ class TrunkRecorder < Formula
   desc "Trunked & Conventional Radio Recorder"
   homepage "https://github.com/robotastic/trunk-recorder"
   license "GPL-3.0-or-later"
-
-  stable do
-    url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v5.0.0.tar.gz"
-    sha256 "a9c328e94f46be89525071a361753dcbf8b1309bf0f8ab186df8769082a9804f"
-  end
-  
-  head do
-    url "https://github.com/robotastic/trunk-recorder.git", branch: "master"
-  end
+  url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "a9c328e94f46be89525071a361753dcbf8b1309bf0f8ab186df8769082a9804f"
+  head "https://github.com/robotastic/trunk-recorder.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "cppunit" => :build
