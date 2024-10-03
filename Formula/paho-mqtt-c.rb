@@ -4,10 +4,7 @@ class PahoMqttC < Formula
   url "https://github.com/eclipse/paho.mqtt.c/archive/refs/tags/v1.3.13.tar.gz"
   sha256 "47c77e95609812da82feee30db435c3b7c720d4fd3147d466ead126e657b6d9c"
   license "EPL-2.0"
-
-  head do
-    url "https://github.com/eclipse/paho.mqtt.c.git", branch: "master"
-  end
+  head "https://github.com/eclipse/paho.mqtt.c.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
