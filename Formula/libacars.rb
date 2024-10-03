@@ -7,13 +7,19 @@ class Libacars < Formula
   head "https://github.com/szpajder/libacars.git", branch: "master"
 
   depends_on "cmake" => :build
-  depends_on "zlib"
   depends_on "jansson"
   depends_on "libxml2"
+  depends_on "zlib"
 
   def install
-    system "cmake", "-B", "build", *std_cmake_args
+    system "cmake", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}",
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  test do
+
+    SAMPLE_ADSC: "d B6 /BOMASAI.ADS.VT-ANB072501A070A988CA73248F0E5DC10200000F5EE1ABC000102B885E0A19F5"
+    system "./test"
   end
 end
