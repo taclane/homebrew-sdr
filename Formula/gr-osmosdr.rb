@@ -3,8 +3,8 @@ class GrOsmosdr < Formula
 
   desc "Osmocom GNU Radio Blocks"
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
-  url "https://gitea.osmocom.org/sdr/gr-osmosdr/archive/v0.2.6.tar.gz"
-  sha256 "8995313795fe7f6fad8f59072067cbfd4dcdb3fa40c5374bdac2c2fb82ce8ab6"
+  url "https://github.com/osmocom/gr-osmosdr/archive/refs/tags/v0.2.6.tar.gz"
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "GPL-3.0-or-later"
   head "https://gitea.osmocom.org/sdr/gr-osmosdr.git", branch: "master"
 
