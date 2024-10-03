@@ -1,8 +1,8 @@
 class TrunkRecorder < Formula
   desc "Trunked & Conventional Radio Recorder"
   homepage "https://github.com/robotastic/trunk-recorder"
-  url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v5.0.0.tar.gz"
-  sha256 "a9c328e94f46be89525071a361753dcbf8b1309bf0f8ab186df8769082a9804f"
+  url "https://github.com/robotastic/trunk-recorder/archive/refs/tags/v5.0.1.tar.gz"
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "GPL-3.0-or-later"
   head "https://github.com/robotastic/trunk-recorder.git", branch: "master"
 
@@ -33,6 +33,8 @@ class TrunkRecorder < Formula
   end
 
   test do
+    # Start trunk recorder with a test configuration file, and gracefully exit after a few seconds.
+    # Doing so should not generate any errors.
     (testpath/"test.json").write <<~EOS
       {
         "ver": 2,
