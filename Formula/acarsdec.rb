@@ -20,7 +20,7 @@ class Acarsdec < Formula
   depends_on "soapysdr"
 
   def install
-    args = %W[
+    args = %w[
       -Bbuild
       -DCMAKE_C_FLAGS=-march=native
     ]
