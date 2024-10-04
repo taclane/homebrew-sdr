@@ -16,6 +16,6 @@ __acarsdec__
 - `brew install acarsdec` (v3.7)
 - `brew install acarsdec --head` (git)
   
-- __libacars__ 
+__libacars__ 
 - `brew install libacars` (v2.2.0)
 - `brew install libacars --head` (git)
