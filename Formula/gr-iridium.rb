@@ -14,6 +14,7 @@ class GrIridium < Formula
   depends_on "librtlsdr"
   depends_on "scipy"
   depends_on "volk"
+  depends_on "zeromq"
 
   def install
     system "cmake", "-B", "build", *std_cmake_args
