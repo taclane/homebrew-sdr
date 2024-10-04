@@ -11,10 +11,6 @@ class GrOsmosdr < Formula
   # brew audit --strict --online gr-osmosdr
   # * Libraries were compiled with a flat namespace.
 
-  # Does not pass audit due to SoapySDR:
-  # /usr/local/share/cmake/SoapySDR/SoapySDRExport.cmake(61):
-  #   set_target_properties( ... INTERFACE_LINK_LIBRARIES -pthread;-pthread;-flat_namespace )
-
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
   depends_on "airspy"

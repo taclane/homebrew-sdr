@@ -12,7 +12,11 @@ class Libacars < Formula
   depends_on "zlib"
 
   def install
-    system "cmake", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    args = %W[
+      -Bbuild
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    system "cmake", *std_cmake_args, *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

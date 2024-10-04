@@ -6,9 +6,6 @@ class GrIridium < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/muccc/gr-iridium.git", branch: "master"
 
-  # brew audit --strict --online gr-osmosdr
-  # * Libraries were compiled with a flat namespace.
-
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
   depends_on "gnuradio"
