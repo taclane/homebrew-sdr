@@ -24,11 +24,7 @@ class TrunkRecorder < Formula
   depends_on "volk"
 
   def install
-    args = %W[
-      -Bbuild
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
-    ]
-    system "cmake", *std_cmake_args, *args
+    system "cmake", *std_cmake_args, "-B", "build"
     system "make", "-C", "build", "install"
   end
 
