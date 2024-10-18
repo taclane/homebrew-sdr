@@ -11,13 +11,12 @@ class PahoMqttCpp < Formula
 
   def install
     args = %W[
-      -Bbuild
+      -B build
       -H.
       -DPAHO_ENABLE_TESTING=OFF
       -DPAHO_BUILD_STATIC=ON
       -DPAHO_WITH_SSL=ON
       -DPAHO_HIGH_PERFORMANCE=ON
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
       -DCMAKE_MACOSX_RPATH=ON
     ]
 

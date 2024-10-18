@@ -21,11 +21,10 @@ class Acarsdec < Formula
 
   def install
     args = %w[
-      -Bbuild
+      -B build
       -DCMAKE_C_FLAGS=-march=native
     ]
     system "cmake", *std_cmake_args, *args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cmake", "--build", "build", "--target", "install"
   end
 end

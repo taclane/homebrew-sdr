@@ -25,7 +25,7 @@ class TrunkRecorder < Formula
 
   def install
     system "cmake", *std_cmake_args, "-B", "build"
-    system "make", "-C", "build", "install"
+    system "cmake", "--build", "build", "--target", "install"
   end
 
   test do

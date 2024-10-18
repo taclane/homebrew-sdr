@@ -13,12 +13,11 @@ class Libacars < Formula
 
   def install
     args = %W[
-      -Bbuild
+      -B build
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
     system "cmake", *std_cmake_args, *args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cmake", "--build", "build", "--target", "install"
   end
 
   test do
