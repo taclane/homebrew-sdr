@@ -9,7 +9,7 @@ class GrIridium < Formula
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
   depends_on "gnuradio"
-  depends_on "gr-osmosdr"
+  depends_on "taclane/sdr/gr-osmosdr"
   depends_on "hackrf"
   depends_on "librtlsdr"
   depends_on "scipy"

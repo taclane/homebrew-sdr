@@ -16,7 +16,7 @@ class TrunkRecorder < Formula
   depends_on "fmt"
   depends_on "gmp"
   depends_on "gnuradio"
-  depends_on "gr-osmosdr"
+  depends_on "taclane/sdr/gr-osmosdr"
   depends_on "openssl@3"
   depends_on "sox"
   depends_on "spdlog"
