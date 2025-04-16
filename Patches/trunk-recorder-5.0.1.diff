@@ -1,0 +1,65 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4079b35..7a724e3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -350,11 +350,11 @@ install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/lib/json.hpp" # source file
+ 
+ # Add built-in plugins located in /plugins
+ add_subdirectory(plugins/openmhz_uploader)
+-add_subdirectory(plugins/stat_socket)
++#add_subdirectory(plugins/stat_socket)
+ add_subdirectory(plugins/broadcastify_uploader)
+ add_subdirectory(plugins/unit_script)
+ add_subdirectory(plugins/rdioscanner_uploader)
+-add_subdirectory(plugins/simplestream)
++#add_subdirectory(plugins/simplestream)
+ 
+ # Add user plugins located in /user_plugins
+ # Matching: /user_plugins/${plugin_dir}/CMakeLists.txt
+diff --git a/lib/op25_repeater/lib/iqfile_source_impl.cc b/lib/op25_repeater/lib/iqfile_source_impl.cc
+index c7c2958..2a34a54 100644
+--- a/lib/op25_repeater/lib/iqfile_source_impl.cc
++++ b/lib/op25_repeater/lib/iqfile_source_impl.cc
+@@ -185,14 +185,14 @@ void iqfile_source_impl::open(const char* filename,
+     }
+ 
+     if ((d_new_fp = fopen(filename, "rb")) == NULL) {
+-        GR_LOG_ERROR(d_logger, boost::format("%s: %s") % filename % strerror(errno));
++        GR_LOG_ERROR(d_logger, (boost::format("%s: %s") % filename % strerror(errno)).str());
+         throw std::runtime_error("can't open file");
+     }
+ 
+     struct GR_STAT st;
+ 
+     if (GR_FSTAT(GR_FILENO(d_new_fp), &st)) {
+-        GR_LOG_ERROR(d_logger, boost::format("%s: %s") % filename % strerror(errno));
++        GR_LOG_ERROR(d_logger, (boost::format("%s: %s") % filename % strerror(errno)).str());
+         throw std::runtime_error("can't fstat file");
+     }
+     if (S_ISREG(st.st_mode)) {
+diff --git a/trunk-recorder/config.cc b/trunk-recorder/config.cc
+index faae47f..bd5fa6d 100644
+--- a/trunk-recorder/config.cc
++++ b/trunk-recorder/config.cc
+@@ -626,7 +626,7 @@ bool load_config(string config_file, Config &config, gr::top_block_sptr &tb, std
+     add_internal_plugin("openmhz_uploader", "libopenmhz_uploader.so", data);
+     add_internal_plugin("broadcastify_uploader", "libbroadcastify_uploader.so", data);
+     add_internal_plugin("unit_script", "libunit_script.so", data);
+-    add_internal_plugin("stat_socket", "libstat_socket.so", data);
++    //add_internal_plugin("stat_socket", "libstat_socket.so", data);
+     initialize_plugins(data, &config, sources, systems);
+   } catch (std::exception const &e) {
+     BOOST_LOG_TRIVIAL(error) << "Failed parsing Config: " << e.what();
+diff --git a/trunk-recorder/gr_blocks/pwr_squelch_cc_impl.h b/trunk-recorder/gr_blocks/pwr_squelch_cc_impl.h
+index 96ee353..ef9e0a1 100644
+--- a/trunk-recorder/gr_blocks/pwr_squelch_cc_impl.h
++++ b/trunk-recorder/gr_blocks/pwr_squelch_cc_impl.h
+@@ -41,7 +41,7 @@ public:
+ 
+     double threshold() const override { return 10 * log10(d_threshold); }
+     void set_threshold(double db) override;
+-    double get_pwr() ;
++    double get_pwr() override;
+     void set_alpha(double alpha) override;
+ 
+     int ramp() const override { return squelch_base_cc_impl::ramp(); }

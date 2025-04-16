@@ -23,6 +23,13 @@ class TrunkRecorder < Formula
   depends_on "uhd"
   depends_on "volk"
 
+  stable do
+    patch do
+      url ""
+      sha256 "db20b1e0ac0534bc4fd189be93b6cf67d6bdd188ba8907e49c960760801df586"
+    end
+  end
+
   def install
     system "cmake", *std_cmake_args, "-B", "build"
     system "cmake", "--build", "build", "--target", "install"
@@ -47,3 +54,4 @@ class TrunkRecorder < Formula
       "trunk-recorder", "-c", testpath/"test.json"
   end
 end
+
