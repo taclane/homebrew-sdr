@@ -25,7 +25,7 @@ class TrunkRecorder < Formula
 
   stable do
     patch do
-      url ""
+      url "https://raw.githubusercontent.com/taclane/homebrew-sdr/refs/heads/main/Patches/trunk-recorder-5.0.1.diff"
       sha256 "db20b1e0ac0534bc4fd189be93b6cf67d6bdd188ba8907e49c960760801df586"
     end
   end
