@@ -1,6 +1,7 @@
 - `brew tap taclane/sdr`
 
 __Trunk Recorder__
+> **Note:** It is recommended to install Trunk Recorder from the official tap: [https://github.com/TrunkRecorder/homebrew-install](https://github.com/TrunkRecorder/homebrew-install).
 - `brew install trunk-recorder` (5.0.1 release)
 - `brew install trunk-recorder --head` (git)
 
