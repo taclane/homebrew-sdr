@@ -2,8 +2,8 @@ class Acarsdec < Formula
   desc "Multi-channels ACARS decoder"
   # homepage "https://github.com/TLeconte/acarsdec"
   homepage "https://github.com/fredclausen/acarsdec"
-  url "https://github.com/TLeconte/acarsdec/archive/refs/tags/acarsdec-3.7.tar.gz"
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  url "https://github.com/f00b4r0/acarsdec/archive/refs/tags/v4.1.tar.gz"
+  sha256 "79c4c739461c0443372a6c651f49f4b3a9306e4a364cd633ba9e733dcc409460"
   license "GPL-2.0"
 
   # head "https://github.com/TLeconte/acarsdec.git", branch: "master"
