@@ -23,7 +23,6 @@ class Acarsdec < Formula
     args = %w[
       -B build
       -DCMAKE_C_FLAGS=-march=native
-      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
     system "cmake", *std_cmake_args, *args
     system "cmake", "--build", "build", "--target", "install"

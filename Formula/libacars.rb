@@ -15,6 +15,7 @@ class Libacars < Formula
     args = %W[
       -B build
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
     system "cmake", *std_cmake_args, *args
     system "cmake", "--build", "build", "--target", "install"
