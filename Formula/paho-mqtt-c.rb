@@ -7,7 +7,7 @@ class PahoMqttC < Formula
   head "https://github.com/eclipse/paho.mqtt.c.git", branch: "master"
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = %W[
