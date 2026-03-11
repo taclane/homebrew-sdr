@@ -42,9 +42,8 @@ class Dumphfdl < Formula
     args << "-DRDKAFKA=ON" if build.with? "kafka"
     args << "-DZMQ=ON"
 
-    system "cmake", *std_cmake_args, *args, "."
-    system "make", "-C", "build"
-    system "make", "-C", "build", "install"
+    system "cmake", *std_cmake_args, *args, "-B", "build"
+    system "cmake", "--build", "build", "--target", "install"  
   end
 
   test do
