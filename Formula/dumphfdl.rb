@@ -11,7 +11,7 @@ class Dumphfdl < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "libacars"
+  depends_on "taclane/sdr/libacars"
   depends_on "libconfig"
   depends_on "liquid-dsp"
   depends_on "fftw"

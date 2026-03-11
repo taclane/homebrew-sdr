@@ -11,7 +11,7 @@ class Acarsdec < Formula
 
   depends_on "cmake" => :build
   depends_on "cjson"
-  depends_on "libacars"
+  depends_on "taclane/sdr/libacars"
   depends_on "librtlsdr"
   depends_on "libsndfile"
   depends_on "libusb"

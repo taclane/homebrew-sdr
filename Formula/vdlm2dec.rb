@@ -14,7 +14,7 @@ class Vdlm2dec < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libacars"
+  depends_on "taclane/sdr/libacars"
   depends_on "librtlsdr"
   depends_on "libxml2"
   depends_on "zlib"
