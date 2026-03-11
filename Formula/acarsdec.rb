@@ -1,13 +1,13 @@
 class Acarsdec < Formula
   desc "Multi-channels ACARS decoder"
   # homepage "https://github.com/TLeconte/acarsdec"
-  homepage "https://github.com/fredclausen/acarsdec"
+  homepage "https://github.com/f00b4r0/acarsdec"
   url "https://github.com/f00b4r0/acarsdec/archive/refs/tags/v4.4.1.tar.gz"
   sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "GPL-2.0"
 
   # head "https://github.com/TLeconte/acarsdec.git", branch: "master"
-  head "https://github.com/fredclausen/acarsdec.git", branch: "master"
+  head "https://github.com/f00b4r0/acarsdec.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "cjson"

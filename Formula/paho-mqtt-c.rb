@@ -1,8 +1,8 @@
 class PahoMqttC < Formula
   desc "Eclipse Paho C Client Library for the MQTT Protocol"
   homepage "https://github.com/eclipse/paho.mqtt.c"
-  url "https://github.com/eclipse-paho/paho.mqtt.c/archive/refs/tags/v1.3.14.tar.gz"
-  sha256 "7af7d906e60a696a80f1b7c2bd7d6eb164aaad908ff4c40c3332ac2006d07346"
+  url "https://github.com/eclipse-paho/paho.mqtt.c/archive/refs/tags/v1.3.16.tar.gz"
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "EPL-2.0"
   head "https://github.com/eclipse/paho.mqtt.c.git", branch: "master"
 
