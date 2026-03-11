@@ -10,7 +10,7 @@ class Vdlm2dec < Formula
   # Add pthread_barrier support for macOS — not available in system pthread
   patch do
     url "https://raw.githubusercontent.com/taclane/homebrew-sdr/refs/heads/main/Patches/vdlm2dec-2.3.patch"
-    sha256 "3649692bb3d0941a3d457fe18113f9008444263f3f24959b62cb6ddc28e762f7"
+    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   end
 
   depends_on "cmake" => :build
