@@ -1,6 +1,6 @@
---- /dev/null
+--- a/pthread_barrier.h
 +++ b/pthread_barrier.h
-@@ -0,0 +1,90 @@
+@@ -0,0 +1,85 @@
 +/*
 + * pthread_barrier polyfill for macOS / BSD systems.
 + *
@@ -28,9 +28,9 @@
 +typedef struct {
 +    pthread_mutex_t mutex;
 +    pthread_cond_t  cond;
-+    unsigned int    limit;   /* number of threads that must call wait() */
-+    unsigned int    count;   /* threads currently waiting */
-+    unsigned int    phase;   /* generation counter — prevents spurious wake-ups */
++    unsigned int    limit;
++    unsigned int    count;
++    unsigned int    phase;
 +} pthread_barrier_t;
 +
 +static inline int
@@ -71,14 +71,12 @@
 +    pthread_mutex_lock(&barrier->mutex);
 +    barrier->count++;
 +    if (barrier->count >= barrier->limit) {
-+        /* Last thread to arrive — release everyone. */
 +        barrier->phase++;
 +        barrier->count = 0;
 +        pthread_cond_broadcast(&barrier->cond);
 +        pthread_mutex_unlock(&barrier->mutex);
 +        return PTHREAD_BARRIER_SERIAL_THREAD;
 +    } else {
-+        /* Wait until the current generation advances. */
 +        unsigned int phase = barrier->phase;
 +        while (barrier->phase == phase)
 +            pthread_cond_wait(&barrier->cond, &barrier->mutex);
@@ -87,9 +85,9 @@
 +    }
 +}
 +
-+#endif /* !PTHREAD_BARRIER_SERIAL_THREAD */
-+#endif /* _PTHREAD_BARRIER_H */
-+--- a/vdlm2.h
++#endif
++#endif
+--- a/vdlm2.h
 +++ b/vdlm2.h
 @@ -17,6 +17,9 @@
   *
