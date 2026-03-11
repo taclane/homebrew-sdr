@@ -1,8 +1,8 @@
 class Vdlm2dec < Formula
   desc "VDL Mode 2 message decoder"
   homepage "https://github.com/TLeconte/vdlm2dec"
-  url "https://github.com/TLeconte/vdlm2dec/archive/refs/tags/v1.11.tar.gz"
-  sha256 "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  url "https://github.com/TLeconte/vdlm2dec/archive/refs/tags/v2.3.tar.gz"
+  sha256 "ed6294a0d59423408e75e91dd06be0d25d89b06e034caf0c162b6c2a7384c677"
   license "GPL-2.0"
 
   head "https://github.com/TLeconte/vdlm2dec.git", branch: "master"
