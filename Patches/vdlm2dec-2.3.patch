@@ -85,8 +85,8 @@
 +    }
 +}
 +
-+#endif
-+#endif
++#endif /* !PTHREAD_BARRIER_SERIAL_THREAD */
++#endif /* _PTHREAD_BARRIER_H */
 --- a/vdlm2.h
 +++ b/vdlm2.h
 @@ -17,6 +17,9 @@
