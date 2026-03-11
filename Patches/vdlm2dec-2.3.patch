@@ -1,9 +1,9 @@
 diff --git a/pthread_barrier.h b/pthread_barrier.h
 new file mode 100644
-index 0000000..1234567
+index 0000000..ab375ab
 --- /dev/null
 +++ b/pthread_barrier.h
-@@ -0,0 +1,85 @@
+@@ -0,0 +1,88 @@
 +/*
 + * pthread_barrier polyfill for macOS / BSD systems.
 + *
@@ -12,6 +12,7 @@ index 0000000..1234567
 + * variable, which are available everywhere.
 + *
 + * BSD 2-Clause License
++ * Same approach used by dumpvdl2 / dumphfdl.
 + */
 +#ifndef _PTHREAD_BARRIER_H
 +#define _PTHREAD_BARRIER_H
@@ -19,7 +20,8 @@ index 0000000..1234567
 +#include <pthread.h>
 +#include <errno.h>
 +
-+/* Only activate when the platform doesn't provide barriers natively. */
++/* Only activate when the platform doesn't provide barriers natively.
++ * glibc / Linux defines PTHREAD_BARRIER_SERIAL_THREAD in <pthread.h>. */
 +#ifndef PTHREAD_BARRIER_SERIAL_THREAD
 +
 +#define PTHREAD_BARRIER_SERIAL_THREAD (-1)
@@ -29,9 +31,9 @@ index 0000000..1234567
 +typedef struct {
 +    pthread_mutex_t mutex;
 +    pthread_cond_t  cond;
-+    unsigned int    limit;
-+    unsigned int    count;
-+    unsigned int    phase;
++    unsigned int    limit;   /* number of threads that must call wait() */
++    unsigned int    count;   /* threads currently waiting */
++    unsigned int    phase;   /* generation counter — prevents spurious wake-ups */
 +} pthread_barrier_t;
 +
 +static inline int
@@ -72,12 +74,14 @@ index 0000000..1234567
 +    pthread_mutex_lock(&barrier->mutex);
 +    barrier->count++;
 +    if (barrier->count >= barrier->limit) {
++        /* Last thread to arrive — release everyone. */
 +        barrier->phase++;
 +        barrier->count = 0;
 +        pthread_cond_broadcast(&barrier->cond);
 +        pthread_mutex_unlock(&barrier->mutex);
 +        return PTHREAD_BARRIER_SERIAL_THREAD;
 +    } else {
++        /* Wait until the current generation advances. */
 +        unsigned int phase = barrier->phase;
 +        while (barrier->phase == phase)
 +            pthread_cond_wait(&barrier->cond, &barrier->mutex);
