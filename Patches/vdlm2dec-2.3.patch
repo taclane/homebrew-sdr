@@ -1,4 +1,7 @@
---- a/pthread_barrier.h
+diff --git a/pthread_barrier.h b/pthread_barrier.h
+new file mode 100644
+index 0000000..1234567
+--- /dev/null
 +++ b/pthread_barrier.h
 @@ -0,0 +1,85 @@
 +/*
@@ -9,7 +12,6 @@
 + * variable, which are available everywhere.
 + *
 + * BSD 2-Clause License
-+ * Same approach used by dumpvdl2 / dumphfdl.
 + */
 +#ifndef _PTHREAD_BARRIER_H
 +#define _PTHREAD_BARRIER_H
@@ -17,8 +19,7 @@
 +#include <pthread.h>
 +#include <errno.h>
 +
-+/* Only activate when the platform doesn't provide barriers natively.
-+ * glibc / Linux defines PTHREAD_BARRIER_SERIAL_THREAD in <pthread.h>. */
++/* Only activate when the platform doesn't provide barriers natively. */
 +#ifndef PTHREAD_BARRIER_SERIAL_THREAD
 +
 +#define PTHREAD_BARRIER_SERIAL_THREAD (-1)
@@ -87,6 +88,8 @@
 +
 +#endif /* !PTHREAD_BARRIER_SERIAL_THREAD */
 +#endif /* _PTHREAD_BARRIER_H */
+diff --git a/vdlm2.h b/vdlm2.h
+index 8fb7fa5..fa4d856 100644
 --- a/vdlm2.h
 +++ b/vdlm2.h
 @@ -17,6 +17,9 @@
