@@ -7,6 +7,12 @@ class Vdlm2dec < Formula
 
   head "https://github.com/TLeconte/vdlm2dec.git", branch: "master"
 
+  # Add pthread_barrier support for macOS — not available in system pthread
+  patch do
+    url "https://raw.githubusercontent.com/taclane/homebrew-sdr/refs/heads/main/Patches/vdlm2dec-2.3.patch"
+    sha256 "3649692bb3d0941a3d457fe18113f9008444263f3f24959b62cb6ddc28e762f7"
+  end
+
   depends_on "cmake" => :build
   depends_on "libacars"
   depends_on "librtlsdr"
