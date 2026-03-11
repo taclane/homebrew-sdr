@@ -2,7 +2,7 @@ class Libacars < Formula
   desc "Library for decoding ACARS message contents"
   homepage "https://github.com/szpajder/libacars"
   url "https://github.com/szpajder/libacars/archive/refs/tags/v2.2.1.tar.gz"
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  sha256 "94b1669ce73f085494fb768a02aab8ac0f4e52704759269b9c526637aa6db7d9"
   license "MIT"
   head "https://github.com/szpajder/libacars.git", branch: "master"
 

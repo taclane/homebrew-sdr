@@ -2,7 +2,7 @@ class PahoMqttCpp < Formula
   desc "Eclipse Paho C++ Client Library for the MQTT Protocol"
   homepage "https://github.com/eclipse/paho.mqtt.cpp"
   url "https://github.com/eclipse-paho/paho.mqtt.cpp/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  sha256 "73bdb408ae98812c5c2b7f00b2ae7c4fdb9798424abe5a7f7afb13c8fd462156"
   license "EPL-2.0"
   head "https://github.com/eclipse/paho.mqtt.cpp.git", branch: "master"
 
