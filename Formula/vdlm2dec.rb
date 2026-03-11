@@ -29,11 +29,11 @@ class Vdlm2dec < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
-    # Enable RTL-SDR by default
-    args << "-Drtl=ON"
-
-    # Add Airspy support if requested
-    args << "-Dairspy=ON" if build.with? "airspy"
+    if build.with? "airspy"
+      args << "-Dairspy=ON"
+    else
+      args << "-Drtl=ON"
+    end
 
     system "cmake", *std_cmake_args, *args
     system "cmake", "--build", "build", "--target", "install"
