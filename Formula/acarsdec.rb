@@ -15,7 +15,7 @@ class Acarsdec < Formula
   depends_on "librtlsdr"
   depends_on "libsndfile"
   depends_on "libusb"
-  depends_on "paho-mqtt-c"
+  depends_on "taclane/sdr/paho-mqtt-c"
   depends_on "soapyrtlsdr"
   depends_on "soapysdr"
 
