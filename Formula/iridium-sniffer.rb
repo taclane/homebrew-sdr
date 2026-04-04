@@ -13,6 +13,8 @@ class IridiumSniffer < Formula
   depends_on "zmq"
   depends_on "taclane/sdr/libacars"
 
+  patch :DATA
+
   def install
     args = %w[
       -B build
@@ -28,3 +30,11 @@ class IridiumSniffer < Formula
     assert_match "Usage", shell_output("#{bin}/iridium-sniffer --help 2>&1", 1)
   end
 end
+
+__END__
+diff --git a/burst_detect.c b/burst_detect.c
+--- a/burst_detect.c
++++ b/burst_detect.c
+@@ -1,3 +1,4 @@
++#include <unistd.h>
+ #include <stdlib.h>
