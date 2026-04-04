@@ -8,9 +8,9 @@ class IridiumSniffer < Formula
   depends_on "fftw"
   depends_on "hackrf"
   depends_on "libbladerf"
-  depends_on "libuhd"
+  depends_on "uhd"
   depends_on "soapysdr"
-  depends_on "libzmq"
+  depends_on "zmq"
   depends_on "taclane/sdr/libacars"
 
   def install
