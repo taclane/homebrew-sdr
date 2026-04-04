@@ -33,8 +33,14 @@ end
 
 __END__
 diff --git a/burst_detect.c b/burst_detect.c
+index f02d493..16ae0e7 100644
 --- a/burst_detect.c
 +++ b/burst_detect.c
-@@ -1,3 +1,4 @@
+@@ -20,6 +20,8 @@
+ #include <string.h>
+ #include <time.h>
+ 
 +#include <unistd.h>
- #include <stdlib.h>
++
+ #include <dlfcn.h>
+ #include <fftw3.h>
